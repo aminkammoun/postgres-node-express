@@ -10,6 +10,8 @@ services:
       POSTGRES_DB: test_db
     ports:
       - "5432:5432"
+    volumes:
+      - db:/data/db
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
@@ -33,3 +35,6 @@ services:
       SEQ_USER: docker
       SEQ_PW: docker
       DATABASE_URL: postgres://docker:docker@pg_container:5432/api
+volumes:
+  db:
+    driver: local
