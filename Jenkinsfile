@@ -3,22 +3,22 @@ pipeline {
          stages {
                  stage('show docker images available') {
                  steps {
-                     sudo docker images
+                    sh 'sudo docker images'
                  }
                  }
                  stage('show docker running images') {
                  steps {
-                    sudo docker ps
+                    sh 'sudo docker ps'
                  }
                  }
                  stage('down docker compose') {
                  steps {
-                       sudo docker-compose down -v 
+                       sh 'sudo docker-compose down -v' 
                  }
                  }
                  stage('down docker compose build') {
                  steps {
-                       sudo docker-compose up --build
+                       sh 'docker-compose build'
                  }
                  }
               }
