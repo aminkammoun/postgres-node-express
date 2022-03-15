@@ -1,11 +1,6 @@
 pipeline {
          agent any
          stages {
-               stage("root"){
-                  steps{
-                        sh 'echo "amine22102439" | sudo -S sleep 1 && sudo su'
-                  }
-               }
                  stage('show docker images available') {
                  steps {
                     sh 'sudo docker images'
