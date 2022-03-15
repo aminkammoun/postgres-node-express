@@ -1,24 +1,29 @@
 pipeline {
          agent any
          stages {
+               stage("root"){
+                  steps{
+                        sh 'echo "amine22102439" | sudo -S sleep 1 && sudo su'
+                  }
+               }
                  stage('show docker images available') {
                  steps {
-                    sh ' docker images'
+                    sh 'sudo docker images'
                  }
                  }
                  stage('show docker running images') {
                  steps {
-                    sh ' docker ps'
+                    sh 'sudo docker ps'
                  }
                  }
                  stage('down docker compose') {
                  steps {
-                       sh ' docker-compose down -v' 
+                       sh 'sudo docker-compose down -v' 
                  }
                  }
                  stage('down docker compose build') {
                  steps {
-                       sh 'docker-compose build'
+                       sh 'sudo docker-compose build'
                  }
                  }
               }
